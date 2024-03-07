@@ -1,36 +1,48 @@
-// import logo from './logo.svg';
-import './App.css';
-import { useState } from 'react';
 
-function AttendanceTracker() {
-  const [attendance, setAttendance] = useState(0);
+// import React from 'react';
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+// import AttendanceTracker from './AttendanceTracker';
+// import Navbar from './components/Navbar';
 
-  const handleIncrement = () => {
-    setAttendance(attendance + 1);
-  };
+// function App() {
+//   return (
+//     <Router>
+//       <div>
+//         <Navbar />
+//         <Route path="/" exact component={Home} />
+//         <Route path="/attendance" component={AttendanceTracker} />
+//       </div>
+//     </Router>
+//   );
+// }
 
-  const handleDecrement = () => {
-    setAttendance(attendance - 1);
-  };
+// function Home() {
+//   return <h2>Home Page</h2>;
+// }
 
-  const handleReset = () => {
-    setAttendance(0);
-  };
+// export default App;
 
+
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import AttendanceTracker from './components/AttendanceTracker';
+import Navbar from './components/Navbar';
+
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-
-        <p>Group 4's Attendance: {attendance}</p>
-        <button onClick={handleIncrement}>Mark Attendance</button>
-        <br />
-        <button onClick={handleDecrement}>Cancel Attendance</button>
-        <br />
-        <button onClick={handleReset}>Reset Attendance</button>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Route path="/" exact component={Home} />
+        <Route path="/attendance" component={AttendanceTracker} />
+      </div>
+    </Router>
   );
 }
 
-export default AttendanceTracker;
+function Home() {
+  return <h2>Home Page</h2>;
+}
+
+export default App;
